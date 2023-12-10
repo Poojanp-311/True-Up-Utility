@@ -1,0 +1,17 @@
+#divChart{
+    width: 500px;
+    height: 500px;
+    margin-top: 10px;
+      margin-left: 100px;
+  }
+  
+  .header{
+      text-align: center;
+  }
+#buttonSize{
+    font-size: 25px !important;
+    float: right;
+    cursor: pointer;
+    margin-right: 25px;
+    margin-top: 5px;
+  }   

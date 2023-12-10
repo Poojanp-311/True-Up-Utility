@@ -1,0 +1,102 @@
+<div id="body">
+
+  
+  <div className="app-container" style="padding-top: 8%;padding-left: 3%; width: 70%;">
+  
+    <h1 style="padding-left: 50%;"> TrueUp &nbsp;Utility</h1>
+    <div>
+    <div class="form-group1">
+        <label for="javaVersion"><b>Organization</b></label>
+        <select required (change)="changeSelectOrg($event)" style="border-left: 5px solid #f90074;"  class="form-control1" id="cloudIntegration"
+          name="cloudIntegration">
+          <option selected value="">Organization</option>
+          <option value="DSG-CHARGE">DSG-CHARGE</option>
+          <option value="DSG-DFM">DSG-DFM</option>
+        </select>
+        <div *ngIf="show" style="font-size: 15px;background-color: white !important;padding-left: 5px;color: red;">Required</div>
+      </div>
+  
+      <div class="form-group1">
+        <label for="javaVersion"><b>Capability</b></label>
+        <select required (change)="changeSelect($event)" style="border-left: 5px solid #f90074;"  class="form-control1" id="cloudIntegration"
+          name="cloudIntegration" >
+          <option selected value="">Capability</option>
+          <option *ngFor="let capability of capabilities" value="{{capability.id}}">{{capability.name}}</option>
+          <!-- <option value="pcf">RSP</option>
+          <option value="aws">TIBCO</option> -->
+        </select>
+        <div *ngIf="show1" style="font-size: 15px;padding-left: 5px;color: red;">Required</div>
+      </div>
+  
+      <div class="form-group1">
+        <label for="javaVersion"><b>Space</b></label>
+        <select (change)="changeSelectSpace($event)" style="border-left: 5px solid #f90074;"  class="form-control1" id="cloudIntegration"
+          name="cloudIntegration" required>
+          <option selected value="">Space</option>
+          <option *ngFor="let space of spaces">{{space.name}}</option>
+          <!-- <option value="pcf">ilab02</option>
+          <option value="aws">qlab02</option> -->
+        </select>
+        <div *ngIf="show2" style="font-size: 15px;padding-left: 5px;color: red;">Required</div>
+      </div>
+    
+      <button mat-raised-button (click)="popMe()" [disabled]="isButton" class="button" >Search</button>
+     
+    
+    </div>
+  
+    <!-- <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only" id="loading"></span>
+        </div>
+    </div> -->
+  
+  
+   <div style="padding-top: 10% !important;">
+    <div  *ngIf="isTable">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+              <th (click)="sort('appName')">App Name&nbsp;<i class="fa fa-sort"></i></th>
+              <th>Branch Name</th>
+              <th>prd03c Branch</th>
+              <th>prd04c Branch</th>
+              <th>Health</th>
+              <th>Status</th>
+             <th>True-Up</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let out of output | orderBy: key: reverse | paginate: {itemsPerPage:3,currentPage:p}">
+            <td>{{ out.appName }}</td>
+            <td>{{ out.branchName }}</td>
+            <td>{{ out.prd03cBranch }}</td>
+            <td>{{ out.prd04cBranch }}</td>
+            <td>{{ out.healthCheck}}</td>
+            <td>{{ out.infoMsg}}</td>
+            <!-- <td><input  type="checkbox" id="switch" class="checkbox" />
+              <label for="switch" class="toggle">
+              <div style="text-align: center;"><p>YES  NO</p></div>
+              </label>
+          </td> -->
+         <!-- <td> <mat-slide-toggle (click)="open()">Slide me!</mat-slide-toggle></td> -->
+         <td><mat-slide-toggle [checked]="out.infoMsg" [disabled]="out.infoMsg" (click)=open() >True up</mat-slide-toggle></td>
+          </tr>
+        </tbody>
+        <div class="pagination"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+      </table>
+
+    </div>
+    
+      
+    
+
+    <ng-container *ngIf="loading$ | async">
+      <div class="overlay"></div>
+      <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+    </ng-container>
+
+    
+  </div>
+   </div>
+  </div>

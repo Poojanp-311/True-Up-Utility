@@ -1,0 +1,51 @@
+<!-- <div>
+<form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+    billhistory-rsp <input type="checkbox" name="billhistory-rsp" formControlName="billhistory-rsp"><br>
+    addressupdate-rsp<input type="checkbox" name="addressupdate-rsp" formControlName="addressupdate-rsp" ><br>
+    <input type="submit" value="Submit">
+</form>
+</div> -->
+
+<!-- <div className="app-container" style="padding-top: 8%;padding-left: 3%; display: inline-flex;width: 70%;">
+    <div class="form-group1">
+        <div><button mat-raised-button class="button" >GetAppName</button></div>
+        <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+           
+            
+           
+                Excel Report: <div *ngFor="let name of names; let i=index">
+            <label>
+                
+                <input type="checkbox" (change)="onCheckBoxChange($event)" >
+                {{name}}  
+            </label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+   </div>
+   </div> -->
+
+
+   <div className="app-container" style="padding-top: 8%;padding-left: 3%; display: inline-flex;width: 70%;">
+    <div class="form-group1">
+        <div><button mat-raised-button (click)="clickMe()" [disabled]="isButton" class="button" >GetAppName</button></div>
+        
+        <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+                <div *ngFor="let branch of branches; let i=index">
+            <label>
+               
+                <input type="checkbox" value="{{branch.appName}}" (change)="onCheckBoxChange($event)" >
+                {{branch.appName}}  
+            </label>
+        </div>
+        <input type="submit" value="Submit">
+    
+    </form>
+
+   </div>
+   </div>
+
+   <ng-container *ngIf="loading$ | async">
+    <div class="overlay"></div>
+    <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+  </ng-container>

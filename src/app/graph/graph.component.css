@@ -1,0 +1,133 @@
+.form-control1 {
+    display: block;
+    width: 50%;
+    padding: .200rem .45rem;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+.form-group1{
+    width: 32%;
+    float: left;
+}
+
+
+.form-group label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.control{
+    width: 100%;
+    padding: 0;
+}
+
+.control-element{
+    display: block;
+    padding: 0;
+}
+
+.control-inline{
+    display: flex;
+    padding: 0.6rem;
+}
+
+.control label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.control-inline label {
+    white-space: nowrap;
+    font-weight: 500;
+    flex: 110px 0;
+    padding-top: 5px;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.button {
+    height: 55px;
+    width: 200px;
+    /* padding: 15px 0; */
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #f90074;
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: #f90074;
+    color: white;
+    }
+    
+    .button:hover {
+    color: black;
+    background-color: #dfe1e6d8;
+    }
+    
+    .button:active {
+      
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    }
+
+
+    .dangerContainer{
+       color: red;
+    }
+
+    /* .container{
+        padding-left: 1% !important;
+    } */
+
+    #loading{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        mat-progress-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            color: #f90074 !important;
+        }
+        
+        .overlay {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            z-index: 2;
+            backdrop-filter: blur(2px);
+        }

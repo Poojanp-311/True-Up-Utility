@@ -1,0 +1,28 @@
+.button {
+    height: 55px;
+    width: 200px;
+    /* padding: 15px 0; */
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #f90074;
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: #f90074;
+    color: white;
+    }
+    
+    .button:hover {
+    color: black;
+    background-color: #dfe1e6d8;
+    }
+    
+    .button:active {
+      
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    }

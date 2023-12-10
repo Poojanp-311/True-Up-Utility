@@ -1,0 +1,61 @@
+<div id="body">
+<div id="buttonSize"><span (click)="close()">X</span></div>
+<div style="border-radius: 20px;border: 3px solid #f90074">
+    <div  class="col-lg-10 mb-4" style="justify-content: center;padding-top: 25px;">
+      <p style="font-size: 16px;">
+        <b style="color: #f90074;font-size: 22px;">What is True-Up?</b>
+        <br>
+        After prod deployment, we need to sync up all our lower environments with production running code which is known as true-up.
+        During true-up we need to deploy production running branch in our lower(testing) environments.
+        To avoid manual true-up deployment we have created simple true-up utility.
+        
+      <!-- <p style="font-size: 16px;">
+        You can get the true up status of each environments in after selecting required data.
+        Once you selected all required data you will get the true-up status of selected space. 
+        If the app is not trued-up yet, you can perform the true-up activity. 
+      </p> -->
+      <!-- <p style="font-size: 16px;">
+        We have another utility as well where you can get the true-up status of all environments. You can download the true-up status as excel report as well.
+      </p> -->
+
+      <p style="font-size: 16px;">
+        <b style="color: #f90074;font-size: 22px;">True-Up Utility</b>
+        <br>
+        Our true-up utility will send a email notification,
+        when we did not true-up our lower environments after the production deployment. 
+        Once if we get a alert we can perform the true-up deployment accordingly. This automation will help to reduce our manual works also we can keep our lower environments trued up always.
+      
+      </p>
+      
+        
+
+      <!-- <div id="container">
+        <div id="left"><p style="font-size: 15px;">Here get the true-up status besed on the space selected.</p>
+            <a routerLink="/trueup"><button class="button" (click)="close()" ><p style="font-size: 20px;padding-top: 6px;">Click</p></button></a>
+        </div>
+        <div id="middle">
+            <p style="font-size: 15px;">Here get the overall true-up status & download the report.</p>
+            <a routerLink="/exportexcel"><button class="button1" (click)="close()" ><p style="font-size: 20px;padding-top: 6px;">Click</p></button></a>
+        </div>
+        
+    </div> -->
+
+    <p>
+        <b style="color: #f90074;font-size: 22px;">Advantages</b>
+      </p>
+      <ul style="font-size: 16px;">
+        <li>Automation</li>
+        <li>Always keep our lower environments trued-up</li>
+        <li>Helps in tracking True-Ups</li>
+      </ul> 
+
+      
+     
+     
+      
+    </div>
+
+  </div>
+
+</div>
+

@@ -1,0 +1,117 @@
+<div id="body">
+  
+<div className="app-container" style="padding-top: 8%;padding-left: 3%; width: 70%;">
+
+  <h1 style="padding-left: 50%;"> TrueUp &nbsp;Status</h1>
+  <div>
+  <div class="form-group1">
+      <label for="javaVersion"><b>Organization</b></label>
+      <select required (change)="changeSelectOrg($event)" style="border-left: 5px solid #f90074;"  class="form-control1" id="cloudIntegration"
+        name="cloudIntegration">
+        <option selected value="">Organization</option>
+        <option value="DSG-CHARGE">DSG-CHARGE</option>
+        <option value="DSG-DFM">DSG-DFM</option>
+      </select>
+      <div *ngIf="show" style="font-size: 15px;background-color: white !important;padding-left: 5px;color: red;">Required</div>
+    </div>
+
+    <div class="form-group1">
+      <label for="javaVersion"><b>Capability</b></label>
+      <select required (change)="changeSelectCap($event)" style="border-left: 5px solid #f90074;"  class="form-control1" id="cloudIntegration"
+        name="cloudIntegration" >
+        <option selected value="">Capability</option> 
+        <option value="RSP">RSP</option>
+        <option value="TIBCO">TIBCO</option>
+        <!-- <option *ngFor="let capability of capabilities" value="{{capability.id}}">{{capability.name}}</option> -->
+        <!-- <option value="pcf">RSP</option>
+        <option value="aws">TIBCO</option> -->
+      </select>
+      <div *ngIf="show1" style="font-size: 15px;padding-left: 5px;color: red;">Required</div>
+    </div>
+
+    <div class="form-group1">
+
+      <label for="logic"><b>Branch/Commit Id</b></label>
+
+      <select required (change)="changeSelectApp($event)" style="border-left: 5px solid #f90074;"  class="form-control1" id="logic"
+
+        name="logic">
+
+        <option selected value="">Select </option>
+
+        <!-- <option value="addresslookup">addresslookup</option>
+
+        <option value="addressupdate">addressupdate</option>
+
+        <option value="addressverification">addressverification</option>
+
+        <option value="billdetails">billdetails</option>
+
+        <option value="billhistory">billhistory</option> -->
+
+        <option value="branch">Branch</option>
+        <option value="commitId">Commit Id</option>
+
+      </select>
+
+      <div *ngIf="show2" style="font-size: 15px;padding-left: 5px;color: red;">Required</div>
+
+    </div>
+
+  
+    <button mat-raised-button (click)="popMe()" [disabled]="isButton" class="button" >Search</button>
+  
+  </div>
+
+   
+ 
+  <div style="padding-top: 10% !important;">
+    <div  *ngIf="isTable">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+              <th (click)="sort('appName')">App Name&nbsp;<i class="fa fa-sort"></i></th>
+              <th>Graph</th>
+              <th>Prd03c</th>
+              <th>Prd04c</th>
+              <th>Ilab02</th>
+              <th>Qlab01</th>
+              <th>Qlab06</th>
+              <th>Qlab07</th>
+              <th>Plab01</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let branch of branches | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}">
+            <td>{{ branch.appName }}</td>
+            <td><button class="button1" (click)="open()">Graph</button></td>
+            <td><a href="#">{{ branch.prod03c }}</a></td>
+            <td><a href="#">{{ branch.prd04c }}</a></td>
+            <td><a href="#">{{ branch.ilab02 }}</a></td>
+            <td><a href="#">{{ branch.qlab01 }}</a></td>
+            <td><a href="#">{{ branch.qlab06 }}</a></td>
+            <td><a href="#">{{ branch.qlab07 }}</a></td>
+            <td><a href="#">{{ branch.plab01}}</a></td>
+            
+          </tr>
+        </tbody>
+
+        <div class="pagination"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+      </table>
+
+    </div>
+    
+      
+    
+
+    <ng-container *ngIf="loading$ | async">
+      <div class="overlay"></div>
+      <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+    </ng-container>
+
+    
+
+  </div>
+  </div>
+</div>
